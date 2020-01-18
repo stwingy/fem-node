@@ -2,6 +2,7 @@ const express = require('express');
 const { json, urlencoded } = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
+const router = require('./apiRouter');
 
 const app = express();
 
@@ -17,6 +18,7 @@ const log = (req, res, next) => {
 	req.data = [ 1, 2, 3, 4, 5 ];
 	next();
 };
+app.use('/api/cat', router);
 
 app.get('/', log, (req, res) => {
 	res.send({ message: 'hello', data: req.data });
