@@ -4,7 +4,7 @@ const controller = (req, res) => {
 	res.send('All cats');
 };
 router.route('/').get(controller).post((req, res) => {
-	res.send('added a car');
+	res.status(200).send('added a car');
 });
 router
 	.route('/:id')
