@@ -4,6 +4,12 @@ const connect = (url, opts = {}) => {
 };
 let db = mongoose.connection;
 
+const mongoose = require('mongoose');
+const connect = (url, opts = {}) => {
+	return mongoose.connect(url, { ...opts, useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+};
+let db = mongoose.connection;
+
 const listSchema = new mongoose.Schema({
 	name: {
 		type: String,
